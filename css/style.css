@@ -1,0 +1,42 @@
+body {
+	background-color:#eee;
+}
+
+p { margin-top:10px;}
+.wrapper {
+	display:block;
+	overflow:auto;
+	width:70%;
+	margin:0 auto;
+	background-color:#FFF;
+    box-shadow: 0 0 3px rgba(0,0,0,.2);
+    padding:10px;
+
+}
+#sent_data {
+	width:80%;
+	height:200px;
+	display:block;
+	clear:both;
+	margin-bottom:10px;
+}
+
+.analysed_table {
+	width:100%;
+}
+.analysed_table td {
+	text-align: left;
+}
+.analysed_table th {
+	text-align: left;
+}
+
+.dump {
+    width: 90%;
+    height: 300px;
+    border: 1px solid #ccc;
+    background: #fefefe;
+    overflow: auto;
+    margin: 10px auto;
+    padding: 10px;
+}
