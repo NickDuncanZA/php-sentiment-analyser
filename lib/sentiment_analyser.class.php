@@ -94,41 +94,41 @@ class SentimentAnalysis {
     private $formatted_output_mention;
 
 
-    /* ADJUSTABLES */
+/* ADJUSTABLES */
 
 
-    /**
-     * Set the neutral score for a sentiment rating.
-     * @var floatval
-     */
-    private $sentiment_rating = 2.5;
+/**
+ * Set the neutral score for a sentiment rating.
+ * @var floatval
+ */
+private $sentiment_rating = 2.5;
 
-    /**
-     * Set the minimum neutral score
-     * @var floatval
-     */
-    private $min_neutral = 2.3;
+/**
+ * Set the minimum neutral score
+ * @var floatval
+ */
+private $min_neutral = 2.3;
 
-    /**
-     * Set the maximum neutral score
-     * @var floatval
-     */
-    private $max_neutral = 2.7;
-
-
-
-    /**
-     * Set the minimum acceptable levenshtein distance 
-     * @var int
-     */
-    private $levenshtein_min_distance = 15;
+/**
+ * Set the maximum neutral score
+ * @var floatval
+ */
+private $max_neutral = 2.7;
 
 
-    /**
-     * Set the minimum acceptable similiarity distance 
-     * @var floatval
-     */
-    private $similiarity_min_distance = 65.00;
+
+/**
+ * Set the minimum acceptable levenshtein distance 
+ * @var int
+ */
+private $levenshtein_min_distance = 15;
+
+
+/**
+ * Set the minimum acceptable similiarity distance 
+ * @var floatval
+ */
+private $similiarity_min_distance = 65.00;
 
 
 
@@ -824,29 +824,29 @@ class SentimentAnalysis {
             return $word;
         }
 
-        /**
-         * Save a text to either the good, bad or neutral data file for reference later in the phrase proximity matching
-         * @param  string   $text   The phrase to be recorded
-         * @param  floatval $rating The sentiment rating of the phrase
-         * @return void
-         */
-        public function import_sentiment_custom($text,$rating) {
+/**
+ * Save a text to either the good, bad or neutral data file for reference later in the phrase proximity matching
+ * @param  string   $text   The phrase to be recorded
+ * @param  floatval $rating The sentiment rating of the phrase
+ * @return void
+ */
+public function import_sentiment_custom($text,$rating) {
 
-            if ($rating >= $this->min_neutral && $rating <= $this->max_neutral) {
-                
-                $fh = fopen(dirname(__FILE__)."/data/neutral_data.txt",'a+');
-            } else if ($rating > $this->max_neutral) {
-                
-                $check = dirname(__FILE__)."/data/positive_data.txt";
-                $fh = fopen($check,'a+');
-            } else {
-                
-                $fh = fopen(dirname(__FILE__)."/data/negative_data.txt",'a+');
-            }
-            fwrite($fh,"\n\r".$text."\t".$rating);
-            fclose($fh);
+    if ($rating >= $this->min_neutral && $rating <= $this->max_neutral) {
+        
+        $fh = fopen(dirname(dirname(__FILE__))."/data/neutral_data.txt",'a+');
+    } else if ($rating > $this->max_neutral) {
+        
+        $check = dirname(dirname(__FILE__))."/data/positive_data.txt";
+        $fh = fopen($check,'a+');
+    } else {
+        
+        $fh = fopen((dirname(__FILE__))."/data/negative_data.txt",'a+');
+    }
+    fwrite($fh,"\n\r".$text."\t".$rating);
+    fclose($fh);
 
-        }
+}
         
 }
 ?>

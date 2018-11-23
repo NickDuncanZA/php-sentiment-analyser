@@ -13,7 +13,7 @@ jQuery(document).ready(function(){
 			'text' : text 
 		}
 	    jQuery.ajax({
-	        url: "http://127.0.0.1/php-bayesian-nick/index.php",
+	        url: "./index.php",
 	        data:data,
 	        type:"POST",
 	        success: function(response) {
